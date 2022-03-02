@@ -8,6 +8,8 @@
 
 - build docker image: `docker build -t riponwen/auth .`
 
+### [Ingress NGINX](https://kubernetes.github.io/ingress-nginx/)
+
 ### application commands under the the alligator projects
 
 - `skaffold dev` to start all the application
