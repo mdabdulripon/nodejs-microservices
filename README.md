@@ -13,3 +13,9 @@
 ### application commands under the the alligator projects
 
 - `skaffold dev` to start all the application
+
+### gcloud commands
+
+- gcloud auth login
+- gcloud init
+- gcloud container clusters get-credentials alligators-dev

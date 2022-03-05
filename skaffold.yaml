@@ -1,14 +1,16 @@
-apiVersion: skaffold/v2beta27 
+apiVersion: skaffold/v2beta27
 kind: Config
 deploy:
   kubectl:
     manifests:
       - ./infra/k8s/*
 build:
-  local:
-    push: false
+  # local:
+  #   push: false
+  googleCloudBuild:
+    projectId: alligators
   artifacts:
-    - image: riponwen/auth
+    - image: us.gcr.io/alligators/auth
       context: auth
       docker:
         dockerfile: Dockerfile
