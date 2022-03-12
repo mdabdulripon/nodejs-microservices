@@ -8,7 +8,7 @@ import { Password } from "../services/password";
 interface UserAttrs {
     email: string;
     password: string;
-} 
+};
 
 /**
  * ! An interface that describes the properties 
@@ -16,7 +16,7 @@ interface UserAttrs {
  * **/ 
 interface UserModel extends mongoose.Model<UserDoc> {
     build(attrs: UserAttrs): UserDoc;
-}
+};
 
 /**
  * ! An interface that describes the properties 
@@ -25,7 +25,7 @@ interface UserModel extends mongoose.Model<UserDoc> {
 interface UserDoc extends mongoose.Document {
     email: string,
     password: string
-}
+};
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -38,19 +38,19 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// * mongoose PreSaveMiddlewareFunction *
+// ? mongoose PreSaveMiddlewareFunction
 userSchema.pre('save', async function(done) {
     if(this.isModified('password')) {
         const hashed = await Password.toHash(this.get('password'));
         this.set('password', hashed);
     }
     done();
-})
+});
 
-// add statics property to the Schema.......
+// ? add statics property to the Schema
 userSchema.statics.build = (attrs: UserAttrs) => {
     return new User(attrs);
-}
+};
 
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
 
