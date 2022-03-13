@@ -8,3 +8,7 @@
 #### Create a secret key or Env variable in Kubernetes cluster
 
 - `kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf`
+
+#### jest
+
+- `npm install --save-dev @types/jest @types/supertest jest supertest ts-jest mongodb-memory-server`
