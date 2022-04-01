@@ -12,3 +12,16 @@
 #### jest
 
 - `npm install --save-dev @types/jest @types/supertest jest supertest ts-jest mongodb-memory-server`
+
+
+
+#### docker 
+- build an images:
+    - docker build -t riponwen/auth .
+- push docker image:
+    - docker push riponwen/auth
+
+
+#### kubernetes:
+- apply the depl configuration to the cluster
+    - kubectl apply -f auth-depl.yaml
