@@ -1,8 +1,13 @@
 import BuildClient from "../api/build-client";
 
 const LandingPage = ({currentUser}) => {
-    console.log(currentUser);
-    return <h1>Landing Page</h1>
+    return (
+        currentUser ? (
+            <h1>You are Sign In</h1>
+        ) : (
+            <h1>You are Not Sign In</h1>
+        )
+    )
 }
 
 // All the server-side rendering logic is placed here at getInitialProps
