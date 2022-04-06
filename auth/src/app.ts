@@ -7,8 +7,7 @@ import { signInRouter } from "./routes/sign-in";
 import { signOutRouter } from "./routes/sign-out";
 import { signUpRouter } from "./routes/sign-up";
 
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFoundError } from "./errors/not-found";
+import { errorHandler, NotFoundError } from "@alligators/common";
 import cookieSession from "cookie-session";
 
 const app = express();
