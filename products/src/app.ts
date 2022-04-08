@@ -2,8 +2,12 @@ import express from "express";
 import 'express-async-errors';
 import { json } from "express";
 
-import { errorHandler, NotFoundError } from "@alligators/common";
+import { currentUser, errorHandler, NotFoundError } from "@alligators/common";
 import cookieSession from "cookie-session";
+import { updateProduct } from "./routes/update-product";
+import { createProduct } from "./routes/create-product";
+import { getSingleProductRouter } from "./routes/get-single-product";
+import { getAllProductsRouter } from "./routes/get-all-products";
 
 const app = express();
 
@@ -15,7 +19,12 @@ app.use(
 		secure: process.env.NODE_ENV !== 'test'
 	})
 );
+app.use(currentUser);
 
+app.use(createProduct);
+app.use(getAllProductsRouter);
+app.use(getSingleProductRouter);
+app.use(updateProduct);
 
 app.all('*', async (req, res, next) => {
  	throw new NotFoundError();
